@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+ 
+
+
+</head>
+
+<body>
+  <div class="container">
+
+    <!--Header-->
+   
+
+    <!--Main-->
+    <main>
+      <div class="product">
+
+      
+
+
+
+        
+      </div>
+    </main>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
+
+
+
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  
+  
+  .main-img {
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  #previousIcon{
+      position: absolute;
+      left: 4%;
+      top:50%;
+      transform: translateY(-50%);
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--white);
+      z-index: 888;
+      cursor: pointer;
+  
+  }
+  #nextIcon{
+      position: absolute;
+      right: 4%;
+      top:50%;
+      transform: translateY(-50%);
+      padding: 1rem;
+      border-radius: 50%;
+      background-color: var(--white);
+      z-index: 888;
+      cursor: pointer;
+  
+  }
+  
+  .thumbs {
+    display: none;
+    cursor: pointer;
+  }
+  
+  .thumbs img{
+    position: relative;
+  }
+  
+  .active-thumbnial {
+    border: 2px solid var(--primary-orange);
+  }
+  
+  
+  .product-descreption {
+    padding: 1rem 1.5rem;
+  }
+  
+  .image-container{
+    width: 100%;
+  }
+  
+  .slider {
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    height: fit-content;
+    background-color: #222;
+  }
+  
+  .slide{
+    width: 100%;
+    background-color: aqua;
+    overflow: hidden;
+  
+  }
+  .slide img{
+  width: 100%;
+  border-radius: 15px;
+  }
+  
+  
+  .slide.active{
+   display: block;
+  }
+  
+  .company_name {
+    color: var(--primary-orange);
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .product__title {
+    max-width: 90%;
+  }
+  
+  .product__info {
+    color: var(--grayish-blue);
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+  
+  .price span {
+    font-size: 1rem;
+    background-color: var(--pale-orange);
+    padding: 0.5rem;
+    color: var(--primary-orange);
+    border-radius: 10px;
+  }
+  
+  .total-price {
+    justify-content: space-between;
+  }
+  
+  .discount {
+    color: var(--grayish-blue);
+    font-weight: bold;
+    text-decoration: line-through;
+  }
+  
+  .all-btns{
+      flex-direction: column;
+  }
+  
+  .btns {
+    background-color: var(--light-grayish-blue);
+    width: 90%;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    border-radius: 10px;
+    margin: auto;
+    font-weight: bold;
+   
+    
+  }
+  
+  .btns button {
+    border: none;
+    background-color: transparent;
+    font-size: 1.9em;
+    color: var(--primary-orange);
+    cursor:pointer ;
+  }
+  
+  @media (min-width : 960px) {
+      .product{
+          flex-direction: row;
+          padding: 3rem;
+          gap: 3rem;
+      }
+      
+      .product .main-img {
+          border-radius: 15px;
+        }
+      .product__imgs{
+          width: 50%;
+        
+      }
+      .product-descreption{
+          width: 50%;
+      }
+      .thumbs{
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          padding: 1rem 0;
+          width: 100%;
+      }
+      .thumbs img{
+          width: calc(24% - 10px);
+         border-radius: 15px;
+      }
+  
+      .total-price{
+          flex-direction: column;
+          align-items: flex-start;
+      }
+  
+      .btns {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin: 0 !important;
+      }
+      .product-descreption .btn{
+          margin-top: 0 !important;
+          box-shadow: 0 0 14px var(--primary-orange);
+      }
+  
+  
+  
+  
+  
+  }
+  
+  
+
+
+let slider = document.querySelector(".image-container")
+let slides = document.querySelectorAll(".slide")
+let nextImg = document.getElementById("nextIcon")
+let prevuiousImg = document.getElementById("previousIcon")
+let thumbs = document.querySelectorAll(".thumb")
+let currentIndex = 0
+
+
+
+
+//Show the slider 
+function showTheSlide() {
+    slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentIndex);
+    });
+
+    // handleTheEdge()
+   
+}
+
+//handle the Edge
+// function handleTheEdge() {
+//     if (currentIndex === slides.length -1){
+//         nextImg.style.display= "none"
+//     }else {
+//         nextImg.style.display = "block";
+//     }
+
+//     if (currentIndex === 0) {
+//         prevuiousImg.style.display = "none";
+//     } else {
+//         prevuiousImg.style.display = "block";
+//     }
+   
+// }
+
+// the next button
+// nextImg.addEventListener("click" ,()=>{
+//     currentIndex = (currentIndex + 1) % slides.length;
+//         showTheSlide();
+//         updateThumbnails() 
+// })
+
+
+
+// the prev button
+// prevuiousImg.addEventListener("click" ,()=>{
+//     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+//     showTheSlide();
+//     updateThumbnails() 
+    
+    
+// })
+
+// show thumbnial
+thumbs.forEach((thumb, index) => {
+    thumb.addEventListener("click", () => {
+        currentIndex = index;
+        showTheSlide();
+        updateThumbnails()
+   
+    });
+});
+
+// active thumbnail
+function updateThumbnails() {
+    thumbs.forEach((thumb, index) => {
+        thumb.classList.toggle('active-thumbnial', index === currentIndex);
+    });
+}
+
+
+
+
+showTheSlide() 
+
+
