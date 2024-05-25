@@ -4,143 +4,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <title>Document</title>
   <link rel="stylesheet" href="style.css">
-  <title>Frontend Mentor | E-commerce product page</title>
 </head>
 
 <body>
-
   <div class="container">
-    <!-- H  E A D E R-->
+    <!--Header-->
     <header>
-      <!-- L O G O -->
-      <div class="flex">
-        <img src="./images/icon-menu.svg" alt="menu" id="menuIcon" class="icon">
-        <a href=""><img src="./images/logo.svg" alt="logo" class="icon logo"></a>
-        <nav id="nav">
-          <img src="./images/icon-close.svg" alt="close" id="closeIcon" class="icon">
-          <ul>
-            <li><a href="#"> Collections</a></li>
-            <li><a href="#"> Men</a></li>
-            <li><a href="#"> Women</a></li>
-            <li><a href="#"> About</a></li>
-            <li><a href="#"> Contact</a></li>
-          </ul>
-        </nav>
+
+      <nav>
+        <div class="logo">
+          <img class="icon-menu" src="./images/icon-menu.svg" alt="logo">
+          <img src="./images/logo.svg" alt="logo" class="logo-img">
+        </div>
+        <ul class="side-bar">
+          <img class="icon-close" src="./images/icon-close.svg" alt="icon close">
+          <li><a href="#"> Collections</a></li>
+          <li><a href="#"> Men</a></li>
+          <li><a href="#"> Women</a></li>
+          <li><a href="#"> About</a></li>
+          <li><a href="#"> Contact</a></li>
+        </ul>
+      </nav>
+      <div class="right-head">
+        <div class="cart ">
+          <span class="cart-car"></span>
+          <img class="cart-icon" src="./images/icon-cart.svg" alt="cart-icoe">
+        </div>
+        <img class="user-img" src="./images/image-avatar.png" alt="victor">
       </div>
-      <div class="flex">
-        <img src="./images/icon-cart.svg" alt="cart" id="cartIcon" class="icon">
-        <img class="avater" src="./images/image-avatar.png" alt="avater" width="26px">
-      </div>
-      <!-- C A R T -->
-      <div class="cart" id="cart">
-        <h3>Cart</h3>
+
+      <div class="cart-wrap unvisbile">
+        <h2>Cart</h2>
         <hr>
-        <div class="item flex">
-          <img src="./images/image-product-1-thumbnail.jpg" alt="itme" class="item-thumb">
-          <p>Fall Limted Edition Sneakers
-            $125.00 x 3 <span> $375.00 </span>
-          </p>
-          <svg class="icon" id="deleteIcon" width="14" height="16" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <defs>
-              <path
-                d="M0 2.625V1.75C0 1.334.334 1 .75 1h3.5l.294-.584A.741.741 0 0 1 5.213 0h3.571a.75.75 0 0 1 .672.416L9.75 1h3.5c.416 0 .75.334.75.75v.875a.376.376 0 0 1-.375.375H.375A.376.376 0 0 1 0 2.625Zm13 1.75V14.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 1 14.5V4.375C1 4.169 1.169 4 1.375 4h11.25c.206 0 .375.169.375.375ZM4.5 6.5c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Zm3 0c0-.275-.225-.5-.5-.5s-.5.225-.5.5v7c0 .275.225.5.5.5s.5-.225.5-.5v-7Z"
-                id="a" />
-            </defs>
-            <use fill="#C3CAD9" fill-rule="nonzero" xlink:href="#a" />
-          </svg>
+        <div class="cart-items">
+
+          <p>Empty</p>
+
 
         </div>
-        <button class="btn">Checkout</button>
       </div>
     </header>
 
-    <!-- P R O D U C T -->
-
-
-
+    <!--Main-->
     <main>
-      <div class="product flex">
-        <!-- S L I D E R-->
-        <div class="image-contanier ">
-          <div class="slider flex">
-            <div class="slide"><img src="./images/image-product-1.jpg" alt="product"> </div>
-            <div class="slide"><img src="./images/image-product-2.jpg" alt="product"> </div>
-            <div class="slide"><img src="./images/image-product-3.jpg" alt="product"> </div>
-            <div class="slide"><img src="./images/image-product-4.jpg" alt="product"> </div>
-          </div>
-          <button class="next"><img src="./images/icon-next.svg" alt=""></button>
-          <button class="prev"><img src="./images/icon-previous.svg" alt=""></button>
-          <div class="thumbs flex">
-            <img src="/images/image-product-1-thumbnail.jpg" alt="product_thumb"
-              data-image="./images/image-product-1.jpg" class="thumb active">
-            <img src="/images/image-product-2-thumbnail.jpg" alt="product_thumb"
-              data-image="./images/image-product-2.jpg" class="thumb">
-            <img src="/images/image-product-3-thumbnail.jpg" alt="product_thumb"
-              data-image="./images/image-product-3.jpg" class="thumb">
-            <img src="/images/image-product-4-thumbnail.jpg" alt="product_thumb"
-              data-image="./images/image-product-4.jpg" class="thumb ">
-          </div>
-        </div>
+      <!--Prodcut-->
+      <div class="product">
+        <!--slider section-->
+        <section class="left-section col">
+          <!--Image Contaienr-->
+          <div class="slider">
+            <img class="preveSlider" src="./images/icon-previous.svg" alt="">
+            <div class="slides">
+              <div class="slide">
+                <img src="./images/image-product-1.jpg" alt="" class="mainImg">
+              </div>
+              <div class="slide">
+                <img src="./images/image-product-2.jpg" alt="">
+              </div>
+              <div class="slide">
+                <img src="./images/image-product-3.jpg" alt="">
+              </div>
+              <div class="slide">
+                <img src="./images/image-product-4.jpg" alt="">
+              </div>
 
-
-        <!-- D E S C R E P T I O N -->
-        <div class="product-descreption">
-          <p class="company_name"> Sneaker Company</p>
-          <h1 class="product__title"> Fall Limited Edition Sneakers</h1>
-          <p class="product__info"> These low-profile sneakers are your perfect casual wear companion. Featuring a
-            durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-          <div class="flex total-price">
-            <h2 class="price"> $125.00 <span>50%</span></h2>
-            <p class="discount"> $250.00</p>
-          </div>
-
-          <div class=" flex all-btns">
-
-            <div class="btns flex">
-              <button class="plusBtn">-</button>
-              <p>0</p>
-              <button class="" id="subBtn">+</button>
             </div>
-            <button class="add__cart btn" id="addCart">Add to cart </button>
+            <img class="nextSlider" src="./images/icon-next.svg" alt="">
+            <div class="thumbnials-contaier unvisbile">
+              <div class="thumbnail-img">
+                <img src="./images/image-product-1-thumbnail.jpg" alt="tumbnail"
+                  data-image="./images/image-product-1.jpg">>
+              </div>
+              <div class="thumbnail-img">
+                <img src="./images/image-product-2-thumbnail.jpg" alt="tumbnail"
+                  data-image="./images/image-product-2.jpg">
+              </div>
+              <div class="thumbnail-img">
+                <img src="./images/image-product-3-thumbnail.jpg" alt="tumbnail"
+                  data-image="./images/image-product-3.jpg">
+              </div>
+              <div class="thumbnail-img">
+                <img src="./images/image-product-4-thumbnail.jpg" alt="tumbnail"
+                  data-image="./images/image-product-4.jpg">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!--Descreption Section-->
+        <section class="product-info col">
+          <p class="company">Sneakers Company</p>
+          <h2 class="info-title">Fall limite edition Sneakers</h2>
+          <p class="info">
+            These low-profile sneakers are your perfect casual wear companion. Featuring a
+            durable rubber outer sole, they’ll withstand everything the weather can offer
+          </p>
+          <div class="price">
+            <div class="current-price">
+              <h3>$125.00</h3>
+              <span>50%</span>
+            </div>
+            <p class="old-price">$255.00</p>
+          </div>
+          <div class="buttons">
+            <div class="value">
+              <button class="minus">
+                <img src="./images/icon-minus.svg" alt="minus">
+              </button>
+              <p class="value-num">0</p>
+              <button class="plus">
+                <img src="./images/icon-plus.svg" alt="plus">
+              </button>
+            </div>
+            <button class="add-to-cart-btn">
+              <span><svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                    fill="#fff" fill-rule="nonzero" />
+                </svg></span>
+              <p>Add to cart</p>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!--Modal-->
+    <div class="modal">
+      <img class="closeIcon" src="./images/icon-close.svg" alt="">
+      <div class="slider">
+        <img class="preveSlider" src="./images/icon-previous.svg" alt="">
+        <div class="slides">
+          <div class="slide">
+            <img src="./images/image-product-1.jpg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./images/image-product-2.jpg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./images/image-product-3.jpg" alt="">
+          </div>
+          <div class="slide">
+            <img src="./images/image-product-4.jpg" alt="">
           </div>
 
         </div>
-      </div>
-      <div class="model">
-        <span class="close">x</span>
-        <div class="model-content">
-          <button class="preve"><img src="./images/icon-previous.svg" alt=""></button>
-          <div class="model-slider flex">
-            <div class="model-slide"><img src="./images/image-product-1.jpg" alt="product"></div>
-            <div class="model-slide"><img src="./images/image-product-2.jpg" alt="product"></div>
-            <div class="model-slide"><img src="./images/image-product-3.jpg" alt="product"></div>
-            <div class="model-slide"><img src="./images/image-product-4.jpg" alt="product"></div>
-          </div>
-          <button class="nexte"><img src="./images/icon-next.svg" alt=""></button>
-        </div>
-        <div class="thumbs flex">
-          <img src="/images/image-product-1-thumbnail.jpg" alt="product_thumb" data-image="./images/image-product-1.jpg"
-            class="thumb active">
-          <img src="/images/image-product-2-thumbnail.jpg" alt="product_thumb" data-image="./images/image-product-2.jpg"
-            class="thumb">
-          <img src="/images/image-product-3-thumbnail.jpg" alt="product_thumb" data-image="./images/image-product-3.jpg"
-            class="thumb">
-          <img src="/images/image-product-4-thumbnail.jpg" alt="product_thumb" data-image="./images/image-product-4.jpg"
-            class="thumb ">
+        <img class="nextSlider" src="./images/icon-next.svg" alt="">
+        <div class="slider-thumbnial">
+          <div class="slide-thumb active"><img src="./images/image-product-1-thumbnail.jpg" alt=""></div>
+          <div class="slide-thumb"><img src="./images/image-product-2-thumbnail.jpg" alt=""></div>
+          <div class="slide-thumb"><img src="./images/image-product-3-thumbnail.jpg" alt=""></div>
+          <div class="slide-thumb"><img src="./images/image-product-4-thumbnail.jpg" alt=""></div>
         </div>
       </div>
+    </div>
   </div>
-  </main>
-  </div>
-
-
-
 
   <script src="app.js"></script>
 </body>

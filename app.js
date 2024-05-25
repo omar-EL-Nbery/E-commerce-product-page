@@ -1,72 +1,146 @@
-let menuIcon = document.getElementById("menuIcon"); // Menu Icon
-let navbar = document.getElementById("nav"); // Navbar
-let closeIcon = document.getElementById("closeIcon"); // Close Icon
-let cartIcon = document.getElementById("cartIcon"); // Cart Icon
-let cart = document.getElementById("cart"); // Cart div
+let menuIcon = document.querySelector(".icon-menu");
+let closeIcon = document.querySelector(".icon-close");
+let addToCartBtn = document.querySelector(".add-to-cart-btn");
+let plusBtm = document.querySelector(".plus");
+let cartIcon = document.querySelector(".cart-icon");
+let minusBtn = document.querySelector(".minus");
+let cartWrap = document.querySelector(".cart-wrap");
+let numOfProducts = document.querySelector(".value-num");
+let cartCar = document.querySelector(".cart-car");
+let nextImgBtn = document.querySelectorAll(".nextSlider");
+let preveSlider = document.querySelectorAll(".preveSlider");
+let thumbnailSlider = document.querySelectorAll(".thumbnail-img img");
+let mainImg = document.querySelector(".mainImg");
+let modal = document.querySelector(".modal");
+let slide = document.querySelectorAll(".slide")
+let slideImg = document.querySelectorAll(".slide img");
+let closeModalIcon = document.querySelector(".closeIcon")
+let currentImageIndex = 0;
+let x = 0;
 
-let nextButton = document.querySelector(".nexte"); // next image btn
-let prevButton = document.querySelector(".preve"); // prev image btn
-let slides = document.querySelectorAll(".slide");
-let slider = document.querySelector(".slider");
-let model = document.querySelector(".model");
-let modelSlider = document.querySelector(".model-slider");
-let closeModel = document.querySelector(".close");
+addToCartBtn.addEventListener("click", addProduct);
 
-let currentIndex = 0;
-
-// open cart
+menuIcon.addEventListener("click", menu);
+closeIcon.addEventListener("click", menu);
+minusBtn.addEventListener("click", removeProductsFromCart);
+plusBtm.addEventListener("click", addItemToCartt);
 cartIcon.addEventListener("click", () => {
-  cart.classList.toggle("show__cart");
+  cartWrap.classList.toggle("unvisbile");
 });
 
-// open side bar
-menuIcon.addEventListener("click", () => {
-  navbar.classList.toggle("show_side_bar");
-});
+nextImgBtn.forEach((btn)=>{
+  btn.addEventListener("click", showNextImg);
+})
 
-//close side bar
-closeIcon.addEventListener("click", () => {
-  navbar.classList.toggle("show_side_bar");
-});
-
-// slider
-function updateSlider() {
-  modelSlider.style.transform = `translateX(-${currentIndex * 103}%)`;
+preveSlider.forEach((btn)=>{
+  btn.addEventListener("click", ShowPrevImg);
+  
+})
+function menu() {
+  let sideBar = document.querySelector(".side-bar");
+  sideBar.classList.toggle("is-sidebar-active");
 }
 
-nextButton.addEventListener("click", () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateSlider();
-});
-prevButton.addEventListener("click", () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateSlider();
-});
+function addItemToCartt() {
+  x++;
+  numOfProducts.innerHTML = x;
+}
 
-slider.addEventListener("click", () => {
-  model.style.opacity = "1";
-  model.style.visibility = "visible";
-});
+function removeProductsFromCart() {
+  let numOfProducts = document.querySelector(".value-num");
+  let cartCar = document.querySelector(".cart-car");
 
-closeModel.addEventListener("click", () => {
-  model.style.opacity = "0";
-  model.style.visibility = "hidden";
-});
+  if (x === 0) {
+    x = 0;
+  } else {
+    x--;
+    numOfProducts.innerHTML = x;
+  }
+}
 
-//thumbnail
-// First, select the main product image. You might need to adjust the selector based on your HTML structure.
-const mainProductImage = document.querySelector(".model-slider .model-slide img");
+function addProduct() {
+  let cartItemWrap = document.querySelector(".cart-items");
+  let cartCar = document.querySelector(".cart-car");
 
-// Then, select all the thumbnail images.
-const thumbnails = document.querySelectorAll(".thumbs .thumb");
+  let conntent = `
+        <div class="cart-item">
+            <img src="./images/image-product-1-thumbnail.jpg" alt="" class="cart-product-img">
+            <div class="text"><p>
+              Fall Limited Edition Sneakers <br>
+              $125.00 x ${x}<span> ${125 * x}.00$</span>
+            </p></div>
+            <img class="delet-icon" src="./images/icon-delete.svg " alt="delete">
+          </div>
+  
+  `;
+
+  cartItemWrap.innerHTML = conntent;
+  cartCar.innerHTML = x;
+
+  let deletProduct = document.querySelector(".delet-icon");
+  deletProduct.addEventListener("click", () => {
+    cartItemWrap.innerHTML = "Empty";
+    cartCar.innerHTML = 0;
+  });
+}
 
 
-thumbnails.forEach((thumb) => {
-  thumb.addEventListener("click", function () {
 
-    mainProductImage.src = this.getAttribute("data-image");
 
-    thumbnails.forEach((t) => t.classList.remove("active"));
-    this.classList.add("active");
+function showNextImg() {
+  if (currentImageIndex == slide.length - 5) {
+    resetCarousel();
+    return;
+  }
+  slide.forEach((img) => {
+    img.style.transform = `translate(${(currentImageIndex + 1) * -100}%)`;
+  });
+  currentImageIndex++;
+
+ 
+}
+
+function ShowPrevImg() {
+  if (currentImageIndex === 0) return;
+
+  slide.forEach((img) => {
+    img.style.transform = `translate(${(currentImageIndex - 1) * -100}%)`;
+  });
+  currentImageIndex--;
+}
+
+function resetCarousel() {
+  slide.forEach((img) => {
+    //we are setting "none" so when every image gets back to position we don't want to show sliding effect
+    img.style.transition = "none";
+    img.style.transform = `translate(0)`; //every image back to original position
+  });
+  currentImageIndex = 0;
+}
+
+thumbnailSlider.forEach((img) => {
+  img.addEventListener("click", () => {
+    const newSrc = img.getAttribute("data-image");
+
+    mainImg.src = newSrc;
+
+    thumbnailSlider.forEach((thumbnail) => {
+      thumbnail.classList.remove("active");
+    });
+
+    img.classList.add("active");
   });
 });
+
+let slides = document.getElementById(".slides");
+
+slideImg.forEach((img) =>{
+  img.addEventListener("click", () => {
+   modal.style.display = "block"
+  });
+})
+
+closeModalIcon.addEventListener("click",()=>{
+  modal.style.display = "none"
+})
+
